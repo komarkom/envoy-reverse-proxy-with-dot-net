@@ -1,0 +1,30 @@
+### support https in docker container ###
+
+1
+dotnet dev-certs https --trust
+
+2
+dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\TeaAPI.pfx -p pa55w0rd!
+dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\CoffeeAPI.pfx -p pa55w0rd!
+
+3
+after set UserSecretsId in *csproj file
+cd project directory
+pass >
+dotnet user-secrets set "Kestrel:Certificates:Development:Password" "pa55w0rd!"
+
+cd CoffeeAPI
+dotnet user-secrets set "Kestrel:Certificates:Development:Password" "pa55w0rd!"
+
+### support https on envoy ###
+4
+open git bash
+cd to folder with https.config
+
+openssl req -config https.config -new -out csr.pem
+
+openssl x509 -req -days 365 -extfile https.config -extensions v3_req -in csr.pem -signkey key.pem -out https.crt
+
+5
+add https.crt to trusted root certificates
+win > cert manager > import https.crt
