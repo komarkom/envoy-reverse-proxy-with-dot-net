@@ -1,0 +1,29 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/tea",
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "teaapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/t"
+    },
+    {
+      "DownstreamPathTemplate": "/coffee",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "coffeeapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/c"
+    },
+  ],
+  "GlobalConfiguration": {
+  }
+}

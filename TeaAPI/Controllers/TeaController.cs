@@ -21,7 +21,6 @@ namespace TeaAPI.Controllers
         public ActionResult Get()
         {
             var rng = new Random();
-            
             return Ok(Teas[rng.Next(Teas.Length)]);
         }
     }

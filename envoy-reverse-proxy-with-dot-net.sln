@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaAPI", "TeaAPI\TeaAPI.csproj", "{CC20706A-A502-4DA5-82DE-981AC2E85570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceGrpcService", "JuiceGrpcService\JuiceGrpcService.csproj", "{332EB2DF-1BC9-44A2-B6E8-0ACBB47F4007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuiceGrpcService", "JuiceGrpcService\JuiceGrpcService.csproj", "{332EB2DF-1BC9-44A2-B6E8-0ACBB47F4007}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeAPI", "CoffeeAPI\CoffeeAPI.csproj", "{213C0A65-C502-4F55-A324-B093C5F0A01A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuiceGrpcClient", "JuiceGrpcClient\JuiceGrpcClient.csproj", "{A24D7464-8CE5-458F-B5F1-7B840D495B0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuiceGrpcClient", "JuiceGrpcClient\JuiceGrpcClient.csproj", "{A24D7464-8CE5-458F-B5F1-7B840D495B0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGwOcelot", "ApiGwOcelot\ApiGwOcelot.csproj", "{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,18 @@ Global
 		{A24D7464-8CE5-458F-B5F1-7B840D495B0B}.Release|x64.Build.0 = Release|Any CPU
 		{A24D7464-8CE5-458F-B5F1-7B840D495B0B}.Release|x86.ActiveCfg = Release|Any CPU
 		{A24D7464-8CE5-458F-B5F1-7B840D495B0B}.Release|x86.Build.0 = Release|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Debug|x64.Build.0 = Debug|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Debug|x86.Build.0 = Debug|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Release|x64.ActiveCfg = Release|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Release|x64.Build.0 = Release|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Release|x86.ActiveCfg = Release|Any CPU
+		{D750B0CA-27B8-49EE-9BD9-E7BC6E012154}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

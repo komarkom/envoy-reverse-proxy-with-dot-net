@@ -7,12 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\google\api\annotations.proto" />
+    <None Remove="Protos\google\api\http.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Protos\google\api\annotations.proto">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Protos\google\api\http.proto">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.18.0-rc2" />
+    <PackageReference Include="Google.Protobuf.Tools" Version="3.18.0-rc2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.HttpApi" Version="0.1.0-alpha.21317.5" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.1.0-alpha.21317.5" />
   </ItemGroup>
 
 </Project>

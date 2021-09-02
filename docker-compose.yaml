@@ -21,7 +21,7 @@ services:
       # ASPNETCORE_URLS: "https://+;http://+"
       ASPNETCORE_URLS: "http://+"
       # ASPNETCORE_HTTPS_PORT: "8081"
-      ASPNETCORE_ENVIRONMENT: "Development"
+      # ASPNETCORE_ENVIRONMENT: "Development"
     # volumes:
     #   - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
     #   - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/
@@ -36,7 +36,7 @@ services:
       # ASPNETCORE_URLS: "https://+;http://+"
       ASPNETCORE_URLS: "http://+"
       # ASPNETCORE_HTTPS_PORT: "8083"
-      ASPNETCORE_ENVIRONMENT: "Development"
+      # ASPNETCORE_ENVIRONMENT: "Development"
     # volumes:
     #   - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
     #   - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/
@@ -46,12 +46,27 @@ services:
     build: JuiceGrpcService/
     ports:
       - "8084:80"
-      - "8085:443"
+      # - "8085:443"
     environment:
-      ASPNETCORE_URLS: "https://+;http://+"
-      # ASPNETCORE_URLS: "http://+"
-      ASPNETCORE_HTTPS_PORT: "8085"
-      ASPNETCORE_ENVIRONMENT: "Development"
-    volumes:
-      - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
-      - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/
+      # ASPNETCORE_URLS: "https://+;http://+"
+      ASPNETCORE_URLS: "http://+"
+      # ASPNETCORE_HTTPS_PORT: "8085"
+      # ASPNETCORE_ENVIRONMENT: "Development"
+    # volumes:
+    #   - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+    #   - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/
+
+  apigwocelot:
+    container_name: apigwocelot
+    build: ApiGwOcelot/
+    ports:
+      - "7000:80"
+      # - "8083:443"
+    environment:
+      # ASPNETCORE_URLS: "https://+;http://+"
+      ASPNETCORE_URLS: "http://+"
+      # ASPNETCORE_HTTPS_PORT: "8083"
+      # ASPNETCORE_ENVIRONMENT: "Development"
+    # volumes:
+    #   - ${APPDATA}\microsoft\UserSecrets\:/root/.microsoft/usersecrets
+    #   - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/

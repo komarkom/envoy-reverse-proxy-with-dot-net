@@ -84,8 +84,9 @@ static_resources:
   #   - filters:
   #     - name: envoy.filters.network.http_connection_manager
   #       typed_config:
-  #         "@type": type.googleapis.com/envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManager
-  #         stat_prefix: ingress_http
+  #         "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+  #         codec_type: auto
+  #         stat_prefix: grpc_json
   #         route_config:
   #           name: local_route
   #           virtual_hosts:
@@ -97,10 +98,17 @@ static_resources:
   #               route:
   #                 cluster: juice_grpc_service
   #         http_filters:
-  #         - name: envoy.grpc_web
-  #         - name: envoy.router
-  #         # http_filters:
-  #         # - name: envoy.filters.http.router
+  #         - name: envoy.filters.http.grpc_json_transcoder
+  #           typed_config:
+  #             "@type": type.googleapis.com/envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder
+  #             proto_descriptor: "protos/helloworld.pb"
+  #             services: ["helloworld.Greeter"]
+  #             print_options:
+  #               add_whitespace: true
+  #               always_print_primitive_fields: true
+  #               always_print_enums_as_ints: false
+  #               preserve_proto_field_names: false
+  #         - name: envoy.filters.http.router
   clusters:
   - name: coffee_service
     connect_timeout: 0.25s
@@ -143,6 +151,11 @@ static_resources:
     # Comment out the following line to test on v6 networks
     dns_lookup_family: V4_ONLY
     lb_policy: ROUND_ROBIN
+    circuit_breakers:
+      thresholds:
+        max_connections: 1
+        max_pending_requests: 1
+        max_retries: 3
     load_assignment:
       cluster_name: tea_service
       endpoints:
@@ -154,11 +167,13 @@ static_resources:
                 port_value: 80
   # - name: juice_grpc_service
   #   connect_timeout: 0.25s
-  #   type: LOGICAL_DNS
-  #   # Comment out the following line to test on v6 networks
-  #   dns_lookup_family: V4_ONLY
-  #   features: http2
-  #   lb_policy: ROUND_ROBIN
+  #   type: logical_dns
+  #   typed_extension_protocol_options:
+  #     envoy.extensions.upstreams.http.v3.HttpProtocolOptions:
+  #       "@type": type.googleapis.com/envoy.extensions.upstreams.http.v3.HttpProtocolOptions
+  #       explicit_http_config:
+  #         http2_protocol_options: {}
+  #   lb_policy: round_robin
   #   load_assignment:
   #     cluster_name: juice_grpc_service
   #     endpoints:
@@ -167,4 +182,4 @@ static_resources:
   #           address:
   #             socket_address:
   #               address: juicegrpcservice
-  #               port_value: 443
+  #               port_value: 80
